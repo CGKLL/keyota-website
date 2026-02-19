@@ -1,8 +1,13 @@
 # keyota-website – erster B2B-Entwurf
 
 ## Inhalt
-- `index.html`: HTML5-Entwurf (B2B-only, kein Shop)
-- `styles.css`: Styling im Look der bestehenden Seite (modern, clean, türkise Akzente)
+- `index.html`: Startseite (Positionierung + Einstiege)
+- `fuer-wen.html`: Zielgruppen
+- `probleme.html`: Probleme & Lösungsansatz
+- `einfuehrung.html`: Einführungsprozess
+- `integrationen.html`: API/Webhooks/Sandbox
+- `start.html`: Startprozess & Kontakt
+- `styles.css`: gemeinsames Styling im KEYOTA-nahen Look
 
 ## Was bereits umgesetzt ist
 - Vollständiger erster Wurf mit allen Kerninhalten der aktuellen B2B-Seite
