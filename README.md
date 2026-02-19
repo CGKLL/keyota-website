@@ -7,6 +7,10 @@
 - `einfuehrung.html`: Einführungsprozess
 - `integrationen.html`: API/Webhooks/Sandbox
 - `start.html`: Startprozess & Kontakt
+- `zielgruppe-hausverwaltung.html`: Zielgruppen-Unterseite Hausverwaltung
+- `zielgruppe-buero.html`: Zielgruppen-Unterseite Bürobetreiber
+- `zielgruppe-serviced-apartments.html`: Zielgruppen-Unterseite Serviced Apartments
+- `site.js`: kleine Navigation-/UX-Logik
 - `styles.css`: gemeinsames Styling im KEYOTA-nahen Look
 
 ## Was bereits umgesetzt ist

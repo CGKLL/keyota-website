@@ -14,6 +14,7 @@
     <header class="site-header">
       <div class="container nav">
         <a class="brand" href="./index.html">KEYOTA</a>
+        <button class="nav-toggle" aria-label="Menü öffnen" onclick="document.body.classList.toggle('nav-open')">☰</button>
         <nav class="main-nav">
           <a class="pill active" href="./index.html">für Business</a>
           <a href="./fuer-wen.html">Für wen?</a>
@@ -43,37 +44,20 @@
     </section>
 
     <main class="page-bg">
-      <section class="section intro">
-        <div class="container narrow center">
-          <h2>Version 2: klare Inhalte auf Unterseiten</h2>
-          <p>
-            Diese Struktur trennt Zielgruppen, Probleme, Einführung, Integration und Startprozess. So können wir
-            einfacher priorisieren, streichen und erweitern – ohne die Startseite zu überladen.
-          </p>
-        </div>
-      </section>
-
       <section class="section portfolio">
         <div class="container">
-          <h2>Schneller Einstieg</h2>
+          <h2>Round 3: Zielgruppen + Funnel</h2>
           <div class="portfolio-grid">
-            <article><h4>Für wen?</h4><p>Zielgruppen mit spezifischen Use Cases und Nutzen.</p><a href="./fuer-wen.html">Zur Seite →</a></article>
-            <article><h4>Probleme & Lösungen</h4><p>Typische Betriebsprobleme und konkrete Wirkung.</p><a href="./probleme.html">Zur Seite →</a></article>
-            <article><h4>Einführung</h4><p>Vorgehen von Bedarf bis Rollout in 4 Schritten.</p><a href="./einfuehrung.html">Zur Seite →</a></article>
-            <article><h4>Integrationen</h4><p>Open API, Webhooks, Sandbox und Architekturfit.</p><a href="./integrationen.html">Zur Seite →</a></article>
-            <article><h4>Start & Preise</h4><p>POC-Einstieg, Zeitrahmen und Kontakt.</p><a href="./start.html">Zur Seite →</a></article>
+            <article><h4>Hausverwaltung</h4><p>Leerstand, Mieterwechsel, Handwerkerzugänge sauber steuern.</p><a href="./zielgruppe-hausverwaltung.html">Zur Seite →</a></article>
+            <article><h4>Bürobetreiber</h4><p>Zutritt für Teams, Gäste und Dienstleister mit Regeln.</p><a href="./zielgruppe-buero.html">Zur Seite →</a></article>
+            <article><h4>Serviced Apartments</h4><p>Digitale Schlüsselübergabe und skalierter Betrieb.</p><a href="./zielgruppe-serviced-apartments.html">Zur Seite →</a></article>
+            <article><h4>Integrationen</h4><p>Open API, Webhooks, Sandbox.</p><a href="./integrationen.html">Zur Seite →</a></article>
+            <article><h4>POC starten</h4><p>Vom Use Case zur rollierbaren Einführung.</p><a href="./start.html">Zum Funnel →</a></article>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="container footer-grid">
-        <div><h5>Navigation</h5><a href="./fuer-wen.html">Für wen?</a><a href="./probleme.html">Probleme & Lösungen</a></div>
-        <div><h5>Projekt</h5><a href="./einfuehrung.html">Einführung</a><a href="./start.html">Start & Preise</a></div>
-        <div><h5>Tech</h5><a href="./integrationen.html">Integrationen</a><a href="https://api-doc.keyota.de" target="_blank">Open API</a></div>
-        <div><h5>Legal</h5><a href="https://www.keyota.de/policies/legal-notice" target="_blank">Impressum</a><a href="https://www.keyota.de/policies/privacy-policy" target="_blank">Datenschutz</a></div>
-      </div>
-    </footer>
+    <script src="./site.js"></script>
   </body>
 </html>
