@@ -1644,7 +1644,7 @@ Artikel wurde in den Warenkorb gelegt
 
 </section><section id="shopify-section-template--19224345346313__98e57aef-c589-4593-a45e-9909a975aa1c" class="shopify-section section"><section id="kontakt-section" class="section-spacing" >
     <div class="tw-max-w-screen-xl tw-mx-auto container-padding"
-         x-data="{ expanded: false }">
+         x-data="{ expanded: (new URLSearchParams(window.location.search).has('prefill') || window.location.hash === '#kontaktForm') }">
 
         <div class="tw-bg-textBackground tw-py-14 md:tw-py-20 lg:tw-py-24 container-padding">
             <h2 class="tw-font-semibold tw-font-['Outfit'] tw-max-w-4xl md:tw-mx-auto md:tw-text-center tw-text-2xl md:tw-text-3xl lg:tw-text-4xl xl:tw-text-5xl tw-mb-3 lg:tw-mb-6">Sprich mit uns - sozusagen over the air.</h2>
@@ -1831,15 +1831,7 @@ Artikel wurde in den Warenkorb gelegt
             messageField.value = prefill;
         }
 
-        // Open collapsed contact form and scroll it into view for direct editing
-        const openFormButton = Array.from(document.querySelectorAll('button')).find(
-            (b) => (b.textContent || '').toLowerCase().includes('kontaktformular')
-        );
-        if (openFormButton) {
-            openFormButton.click();
-        }
-
-        setTimeout(() => {
+        const scrollToForm = () => {
             const form = document.getElementById('kontaktForm');
             if (form) {
                 form.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1848,7 +1840,10 @@ Artikel wurde in den Warenkorb gelegt
             if (field) {
                 field.focus();
             }
-        }, 120);
+        };
+
+        setTimeout(scrollToForm, 120);
+        setTimeout(scrollToForm, 500);
     })();
 
 

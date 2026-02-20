@@ -2010,7 +2010,7 @@ Artikel wurde in den Warenkorb gelegt
                     '',
                     'Bitte unterstützt mich bei der finalen Konfiguration und Angebotserstellung.'
                 ].filter(Boolean).join('\n');
-                return `./kontakt.html?prefill=${encodeURIComponent(lines)}`;
+                return `./kontakt.html?prefill=${encodeURIComponent(lines)}#kontaktForm`;
             },
             isInnenOptionDisabled: function (außenMaß, innenMaß) {
                 return außenMaß ?
