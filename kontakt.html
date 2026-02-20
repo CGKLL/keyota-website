@@ -1825,10 +1825,30 @@ Artikel wurde in den Warenkorb gelegt
         const params = new URLSearchParams(window.location.search);
         const prefill = params.get('prefill') || params.get('message');
         if (!prefill) return;
+
         const messageField = document.getElementById('kontaktMessage');
         if (messageField && !messageField.value) {
             messageField.value = prefill;
         }
+
+        // Open collapsed contact form and scroll it into view for direct editing
+        const openFormButton = Array.from(document.querySelectorAll('button')).find(
+            (b) => (b.textContent || '').toLowerCase().includes('kontaktformular')
+        );
+        if (openFormButton) {
+            openFormButton.click();
+        }
+
+        setTimeout(() => {
+            const form = document.getElementById('kontaktForm');
+            if (form) {
+                form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            const field = document.getElementById('kontaktMessage');
+            if (field) {
+                field.focus();
+            }
+        }, 120);
     })();
 
 
