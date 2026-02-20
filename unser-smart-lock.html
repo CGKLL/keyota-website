@@ -1611,7 +1611,7 @@ Artikel wurde in den Warenkorb gelegt
     
 
 
-</section><section id="shopify-section-template--19224345608457__ccc5e426-14cf-4333-8466-7fec7ff9bc95" class="shopify-section section"><section class="section-spacing" x-data="{ isDisplayingFirst: true }">
+</section><section id="shopify-section-template--19224345608457__ccc5e426-14cf-4333-8466-7fec7ff9bc95" class="shopify-section section"><section class="section-spacing" x-data="{ currentTab: 0 }">
     <div class="tw-container tw-mx-auto container-padding tw-mb-12 md:tw-mb-16 lg:tw-mb-20 xl:tw-mb-24">
         <div class="tw-max-w-screen-lg tw-mx-auto tw-text-center tw-space-y-5 lg:tw-space-y-7">
             <h2 class="tw-text-2xl md:tw-text-3xl lg:tw-text-4xl xl:tw-text-5xl tw-max-w-7xl tw-mx-auto tw-font-['Outfit'] tw-font-semibold">
@@ -1630,32 +1630,64 @@ Artikel wurde in den Warenkorb gelegt
     <div class="tw-max-w-screen-xl container-padding tw-mx-auto">
         <div class="tw-hidden md:tw-flex tw-gap-6">
             <div class="tw-w-full tw-rounded-t-full md:tw-py-3 lg:tw-py-6 xl:tw-py-8 tw-cursor-pointer"
-                 :class="{ 'tw-bg-[#f6f2ee]': isDisplayingFirst, 'tw-bg-[#C4C4C4]/30': !isDisplayingFirst }"
-                 @click="isDisplayingFirst = true;">
+                 :class="{ 'tw-bg-[#f6f2ee]': currentTab === 0, 'tw-bg-[#C4C4C4]/30': currentTab !== 0 }"
+                 @click="currentTab = 0;">
                 <button class="mediumButton tw-mx-auto"
-                        :class="{ 'tw-bg-[#C4C4C4] tw-border-[#C4C4C4]': !isDisplayingFirst }">Das Türschloss
+                        :class="{ 'tw-bg-[#C4C4C4] tw-border-[#C4C4C4]': currentTab !== 0 }">Das Türschloss
+                </button>
+            </div>
+            <div class="tw-w-full tw-rounded-t-full md:tw-py-3 lg:tw-py-6 xl:tw-py-8 tw-cursor-pointer"
+                 :class="{ 'tw-bg-[#f6f2ee]': currentTab === 1, 'tw-bg-[#C4C4C4]/30': currentTab !== 1 }"
+                 @click="currentTab = 1;">
+                <button class="mediumButton tw-mx-auto"
+                        :class="{ 'tw-bg-[#C4C4C4] tw-border-[#C4C4C4]': currentTab !== 1 }">Das smarte Relai
+                </button>
+            </div>
+            <div class="tw-w-full tw-rounded-t-full md:tw-py-3 lg:tw-py-6 xl:tw-py-8 tw-cursor-pointer"
+                 :class="{ 'tw-bg-[#f6f2ee]': currentTab === 2, 'tw-bg-[#C4C4C4]/30': currentTab !== 2 }"
+                 @click="currentTab = 2;">
+                <button class="mediumButton tw-mx-auto"
+                        :class="{ 'tw-bg-[#C4C4C4] tw-border-[#C4C4C4]': currentTab !== 2 }">Unsere Bridge
                 </button>
             </div>
             <div class="tw-bg-[#f6f2ee] tw-w-full tw-rounded-t-full md:tw-py-3 lg:tw-py-6 xl:tw-py-8 tw-cursor-pointer"
-                 :class="{ 'tw-bg-[#f6f2ee]': !isDisplayingFirst, 'tw-bg-[#C4C4C4]/30': isDisplayingFirst }"
-                 @click="isDisplayingFirst = false;">
+                 :class="{ 'tw-bg-[#f6f2ee]': currentTab === 3, 'tw-bg-[#C4C4C4]/30': currentTab !== 3 }"
+                 @click="currentTab = 3;">
                 <button class="mediumButton tw-mx-auto"
-                        :class="{ 'tw-bg-[#C4C4C4] tw-border-[#C4C4C4]': isDisplayingFirst }">Der Schlüssel
+                        :class="{ 'tw-bg-[#C4C4C4] tw-border-[#C4C4C4]': currentTab !== 3 }">Der Schlüssel
                 </button>
             </div>
         </div>
 
         <div class="tw-flex tw-flex-col md:tw-hidden tw-gap-6 tw-rounded-t-3xl tw-py-8 tw-bg-[#f6f2ee]">
-            <button @click="isDisplayingFirst = true;" class="mediumButton tw-mx-auto tw-w-[28rem]"
-                    :class="{ 'tw-bg-[#C4C4C4] tw-border-[#C4C4C4]': !isDisplayingFirst }">Das Türschloss
+            <button @click="currentTab = 0;" class="mediumButton tw-mx-auto tw-w-[28rem]"
+                    :class="{ 'tw-bg-[#C4C4C4] tw-border-[#C4C4C4]': currentTab !== 0 }">Das Türschloss
             </button>
-            <button @click="isDisplayingFirst = false;" class="mediumButton tw-mx-auto tw-w-[28rem]"
-                    :class="{ 'tw-bg-[#C4C4C4] tw-border-[#C4C4C4]': isDisplayingFirst }">Der Schlüssel
+            <button @click="currentTab = 1;" class="mediumButton tw-mx-auto tw-w-[28rem]"
+                    :class="{ 'tw-bg-[#C4C4C4] tw-border-[#C4C4C4]': currentTab !== 1 }">Das smarte Relai
+            </button>
+            <button @click="currentTab = 2;" class="mediumButton tw-mx-auto tw-w-[28rem]"
+                    :class="{ 'tw-bg-[#C4C4C4] tw-border-[#C4C4C4]': currentTab !== 2 }">Unsere Bridge
+            </button>
+            <button @click="currentTab = 3;" class="mediumButton tw-mx-auto tw-w-[28rem]"
+                    :class="{ 'tw-bg-[#C4C4C4] tw-border-[#C4C4C4]': currentTab !== 3 }">Der Schlüssel
             </button>
         </div>
 
-        <div class="tw-bg-[#f6f2ee] tw-pt-8 md:tw-pt-12 lg:tw-pt-16 xl:tw-pt-20 tw-pb-16 md:tw-pb-24 lg:tw-pb-32 xl:tw-pb-40"><div x-data="{ isFirstSelection: true }"
-                             x-show="(isDisplayingFirst && isFirstSelection) || (!isDisplayingFirst && !isFirstSelection)"
+        <div class="tw-bg-[#f6f2ee] tw-pt-8 md:tw-pt-12 lg:tw-pt-16 xl:tw-pt-20 tw-pb-16 md:tw-pb-24 lg:tw-pb-32 xl:tw-pb-40">
+            <div x-show="currentTab === 1" class="tw-mb-24 tw-px-5 md:tw-px-8 lg:tw-px-20 xl:tw-px-36">
+                <div class="tw-max-w-screen-lg tw-mx-auto tw-text-center tw-space-y-5 lg:tw-space-y-7">
+                    <h3 class="tw-text-2xl md:tw-text-3xl lg:tw-text-4xl tw-font-semibold tw-font-['Outfit']">Das smarte Relai</h3>
+                    <p class="tw-text-base md:tw-text-xl lg:tw-text-1.5xl xl:tw-text-2xl tw-text-black/80">Platzhalter-Inhalt – wird im nächsten Schritt mit finalem Content ergänzt.</p>
+                </div>
+            </div>
+            <div x-show="currentTab === 2" class="tw-mb-24 tw-px-5 md:tw-px-8 lg:tw-px-20 xl:tw-px-36">
+                <div class="tw-max-w-screen-lg tw-mx-auto tw-text-center tw-space-y-5 lg:tw-space-y-7">
+                    <h3 class="tw-text-2xl md:tw-text-3xl lg:tw-text-4xl tw-font-semibold tw-font-['Outfit']">Unsere Bridge</h3>
+                    <p class="tw-text-base md:tw-text-xl lg:tw-text-1.5xl xl:tw-text-2xl tw-text-black/80">Platzhalter-Inhalt – wird im nächsten Schritt mit finalem Content ergänzt.</p>
+                </div>
+            </div><div x-data="{ isFirstSelection: true }"
+                             x-show="(currentTab === 0 && isFirstSelection) || (currentTab === 3 && !isFirstSelection)"
                              class="tw-mb-24">
                             <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-4 tw-items-center">
                                 <div class="tw-px-5 tw-space-y-4 md:tw-space-y-8  tw-order-last md:tw-pr-8 lg:tw-pr-20 xl:tw-pr-36 ">
@@ -1671,7 +1703,7 @@ Artikel wurde in den Warenkorb gelegt
 </div>
                             </div>
                         </div><div x-data="{ isFirstSelection: true }"
-                             x-show="(isDisplayingFirst && isFirstSelection) || (!isDisplayingFirst && !isFirstSelection)"
+                             x-show="(currentTab === 0 && isFirstSelection) || (currentTab === 3 && !isFirstSelection)"
                              class="tw-mb-24">
                             <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-4 tw-items-center">
                                 <div class="tw-px-5 tw-space-y-4 md:tw-space-y-8  tw-order-last md:tw-pr-8 lg:tw-pr-20 xl:tw-pr-36 ">
@@ -1687,7 +1719,7 @@ Artikel wurde in den Warenkorb gelegt
 </div>
                             </div>
                         </div><div x-data="{ isFirstSelection: true }"
-                             x-show="(isDisplayingFirst && isFirstSelection) || (!isDisplayingFirst && !isFirstSelection)"
+                             x-show="(currentTab === 0 && isFirstSelection) || (currentTab === 3 && !isFirstSelection)"
                              class="tw-mb-24">
                             <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-4 tw-items-center">
                                 <div class="tw-px-5 tw-space-y-4 md:tw-space-y-8  tw-order-last md:tw-pr-8 lg:tw-pr-20 xl:tw-pr-36 ">
@@ -1703,7 +1735,7 @@ Artikel wurde in den Warenkorb gelegt
 </div>
                             </div>
                         </div><div x-data="{ isFirstSelection: true }"
-                             x-show="(isDisplayingFirst && isFirstSelection) || (!isDisplayingFirst && !isFirstSelection)"
+                             x-show="(currentTab === 0 && isFirstSelection) || (currentTab === 3 && !isFirstSelection)"
                              class="tw-mb-24">
                             <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-4 tw-items-center">
                                 <div class="tw-px-5 tw-space-y-4 md:tw-space-y-8  tw-order-last md:tw-pr-8 lg:tw-pr-20 xl:tw-pr-36 ">
@@ -1719,7 +1751,7 @@ Artikel wurde in den Warenkorb gelegt
 </div>
                             </div>
                         </div><div x-data="{ isFirstSelection: true }"
-                             x-show="(isDisplayingFirst && isFirstSelection) || (!isDisplayingFirst && !isFirstSelection)"
+                             x-show="(currentTab === 0 && isFirstSelection) || (currentTab === 3 && !isFirstSelection)"
                              class="tw-mb-24">
                             <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-4 tw-items-center">
                                 <div class="tw-px-5 tw-space-y-4 md:tw-space-y-8  tw-order-last md:tw-pr-8 lg:tw-pr-20 xl:tw-pr-36 ">
@@ -1735,7 +1767,7 @@ Artikel wurde in den Warenkorb gelegt
 </div>
                             </div>
                         </div><div x-data="{ isFirstSelection: true }"
-                             x-show="(isDisplayingFirst && isFirstSelection) || (!isDisplayingFirst && !isFirstSelection)"
+                             x-show="(currentTab === 0 && isFirstSelection) || (currentTab === 3 && !isFirstSelection)"
                              class="tw-mb-24">
                             <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-4 tw-items-center">
                                 <div class="tw-px-5 tw-space-y-4 md:tw-space-y-8  tw-order-last md:tw-pr-8 lg:tw-pr-20 xl:tw-pr-36 ">
@@ -1751,7 +1783,7 @@ Artikel wurde in den Warenkorb gelegt
 </div>
                             </div>
                         </div><div x-data="{ isFirstSelection: true }"
-                             x-show="(isDisplayingFirst && isFirstSelection) || (!isDisplayingFirst && !isFirstSelection)"
+                             x-show="(currentTab === 0 && isFirstSelection) || (currentTab === 3 && !isFirstSelection)"
                              class="tw-mb-24">
                             <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-4 tw-items-center">
                                 <div class="tw-px-5 tw-space-y-4 md:tw-space-y-8  tw-order-last md:tw-pr-8 lg:tw-pr-20 xl:tw-pr-36 ">
@@ -1767,7 +1799,7 @@ Artikel wurde in den Warenkorb gelegt
 </div>
                             </div>
                         </div><div x-data="{ isFirstSelection: false }"
-                             x-show="(isDisplayingFirst && isFirstSelection) || (!isDisplayingFirst && !isFirstSelection)"
+                             x-show="(currentTab === 0 && isFirstSelection) || (currentTab === 3 && !isFirstSelection)"
                              class="tw-mb-24">
                             <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-4 tw-items-center">
                                 <div class="tw-px-5 tw-space-y-4 md:tw-space-y-8  tw-order-last md:tw-order-first md:tw-pl-8 lg:tw-pl-20 xl:tw-pl-36 ">
@@ -1783,7 +1815,7 @@ Artikel wurde in den Warenkorb gelegt
 </div>
                             </div>
                         </div><div x-data="{ isFirstSelection: false }"
-                             x-show="(isDisplayingFirst && isFirstSelection) || (!isDisplayingFirst && !isFirstSelection)"
+                             x-show="(currentTab === 0 && isFirstSelection) || (currentTab === 3 && !isFirstSelection)"
                              class="tw-mb-24">
                             <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-4 tw-items-center">
                                 <div class="tw-px-5 tw-space-y-4 md:tw-space-y-8  tw-order-last md:tw-order-first md:tw-pl-8 lg:tw-pl-20 xl:tw-pl-36 ">
@@ -1799,7 +1831,7 @@ Artikel wurde in den Warenkorb gelegt
 </div>
                             </div>
                         </div><div x-data="{ isFirstSelection: false }"
-                             x-show="(isDisplayingFirst && isFirstSelection) || (!isDisplayingFirst && !isFirstSelection)"
+                             x-show="(currentTab === 0 && isFirstSelection) || (currentTab === 3 && !isFirstSelection)"
                              class="tw-mb-24">
                             <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-4 tw-items-center">
                                 <div class="tw-px-5 tw-space-y-4 md:tw-space-y-8  tw-order-last md:tw-order-first md:tw-pl-8 lg:tw-pl-20 xl:tw-pl-36 ">
@@ -1815,7 +1847,7 @@ Artikel wurde in den Warenkorb gelegt
 </div>
                             </div>
                         </div><div x-data="{ isFirstSelection: false }"
-                             x-show="(isDisplayingFirst && isFirstSelection) || (!isDisplayingFirst && !isFirstSelection)"
+                             x-show="(currentTab === 0 && isFirstSelection) || (currentTab === 3 && !isFirstSelection)"
                              class="tw-mb-24">
                             <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-4 tw-items-center">
                                 <div class="tw-px-5 tw-space-y-4 md:tw-space-y-8  tw-order-last md:tw-order-first md:tw-pl-8 lg:tw-pl-20 xl:tw-pl-36 ">
@@ -1840,7 +1872,7 @@ Artikel wurde in den Warenkorb gelegt
 </div>
                             </div>
                         </div><div x-data="{ isFirstSelection: false }"
-                             x-show="(isDisplayingFirst && isFirstSelection) || (!isDisplayingFirst && !isFirstSelection)"
+                             x-show="(currentTab === 0 && isFirstSelection) || (currentTab === 3 && !isFirstSelection)"
                              class="tw-mb-24">
                             <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-4 tw-items-center">
                                 <div class="tw-px-5 tw-space-y-4 md:tw-space-y-8  tw-order-last md:tw-order-first md:tw-pl-8 lg:tw-pl-20 xl:tw-pl-36 ">
@@ -1865,7 +1897,7 @@ Artikel wurde in den Warenkorb gelegt
 </div>
                             </div>
                         </div><div x-data="{ isFirstSelection: false }"
-                             x-show="(isDisplayingFirst && isFirstSelection) || (!isDisplayingFirst && !isFirstSelection)"
+                             x-show="(currentTab === 0 && isFirstSelection) || (currentTab === 3 && !isFirstSelection)"
                              class="tw-mb-24">
                             <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-4 tw-items-center">
                                 <div class="tw-px-5 tw-space-y-4 md:tw-space-y-8  tw-order-last md:tw-order-first md:tw-pl-8 lg:tw-pl-20 xl:tw-pl-36 ">
