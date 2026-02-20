@@ -1,13 +1,17 @@
-# keyota-website – neuer Absprungspunkt (1:1 Basis)
+# keyota-website – 1:1 Basis inkl. lokaler Assets
 
-Dieser Stand nutzt die von Klaus gewünschte 1:1-Basis der bestehenden KEYOTA-Seiten.
+Aktueller Stand basiert auf den gewünschten KEYOTA-Seiten als Absprungspunkt.
 
-## Enthaltene Seiten (1:1 übernommen)
-- `index.html` ← https://keyota.de/pages/b2b
-- `unser-smart-lock.html` ← https://keyota.de/pages/unser-smart-lock
-- `sicherheit.html` ← https://keyota.de/pages/sicherheit
-- `groessenfinder.html` ← https://keyota.de/pages/groessenfinder
+## Seiten
+- `index.html` (Basis: `/pages/b2b`)
+- `unser-smart-lock.html` (Basis: `/pages/unser-smart-lock`)
+- `sicherheit.html` (Basis: `/pages/sicherheit`)
+- `groessenfinder.html` (Basis: `/pages/groessenfinder`)
+
+## Lokal mitkopierte Assets (CSS/JS/Medien)
+- `keyota.de/cdn/...` (Shopify Theme Assets, Bilder, Fonts, Skripte)
+- `cdn.shopify.com/videos/...` (eingebundene Videos)
 
 ## Hinweis
-- Vorherige V2/V3-Entwurfsseiten wurden verworfen.
-- Nächste Änderungen erfolgen auf dieser 1:1-Basis.
+- Menü-/Seitenlinks in den 4 HTML-Dateien wurden auf lokale Seiten angepasst,
+  damit die kopierten Seiten direkt untereinander aufrufbar sind.
