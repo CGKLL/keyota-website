@@ -2436,9 +2436,6 @@ Artikel wurde in den Warenkorb gelegt
 </script>
 <script>
 (function(){
-  const removeBusiness = true;
-  const addOverview = true;
-
   const removeMenuLinkByText = (root, textNeedle) => {
     root.querySelectorAll('a').forEach((a) => {
       const txt = (a.textContent || '').trim().toLowerCase();
@@ -2450,40 +2447,41 @@ Artikel wurde in den Warenkorb gelegt
 
   const addOverviewLink = (ul) => {
     if (!ul) return;
+
+    // cleanup accidental duplicates first
+    ul.querySelectorAll('a').forEach((a) => {
+      const txt = (a.textContent || '').trim().toLowerCase();
+      if (txt === 'übersicht' || txt === 'entdecke keyota') {
+        const isNativeEntdecke = a.id && a.id.toLowerCase().includes('entdecke-keyota');
+        if (txt === 'entdecke keyota' && isNativeEntdecke) return;
+        if (txt === 'entdecke keyota' && a.closest('details')) return;
+        const removable = a.closest('li, details, .menu-drawer__menu-item, .header__menu-item') || a;
+        removable.remove();
+      }
+    });
+
     const exists = Array.from(ul.querySelectorAll('a')).some(a => (a.textContent || '').trim().toLowerCase() === 'übersicht');
     if (exists) return;
 
-    const sampleLi = Array.from(ul.children).find((el) => el.querySelector && el.querySelector('a[href]'));
-    const li = sampleLi ? sampleLi.cloneNode(true) : document.createElement('li');
-    const a = li.querySelector('a[href]') || document.createElement('a');
-
+    const li = document.createElement('li');
+    const a = document.createElement('a');
     a.href = './index.html';
-    a.removeAttribute('aria-current');
-    a.classList.remove('menu-drawer__menu-item--active');
-    a.classList.remove('header__active-menu-item');
 
-    const span = a.querySelector('span');
-    if (span) {
-      span.textContent = 'Übersicht';
-      span.classList.remove('header__active-menu-item');
+    if (ul.classList.contains('menu-drawer__menu')) {
+      a.className = 'menu-drawer__menu-item link link--text list-menu__item focus-inset';
+      a.textContent = 'Übersicht';
     } else {
+      a.className = 'header__menu-item list-menu__item link link--text focus-inset';
       a.textContent = 'Übersicht';
     }
 
-    if (!li.contains(a)) {
-      li.appendChild(a);
-    }
-
+    li.appendChild(a);
     ul.insertBefore(li, ul.firstChild);
   };
 
   const apply = () => {
-    if (removeBusiness) {
-      removeMenuLinkByText(document, 'für business');
-    }
-    if (addOverview) {
-      document.querySelectorAll('ul.list-menu--inline, ul.menu-drawer__menu').forEach(addOverviewLink);
-    }
+    removeMenuLinkByText(document, 'für business');
+    document.querySelectorAll('ul.list-menu--inline, ul.menu-drawer__menu').forEach(addOverviewLink);
   };
 
   if (document.readyState === 'loading') {
