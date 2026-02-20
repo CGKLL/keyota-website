@@ -1169,7 +1169,7 @@ await import("//keyota.de/cdn/shopifycloud/shop-js/modules/v2/chunk.modal_BxEbAq
                       Kontakt
                     </a></li><li><a
                       id="HeaderDrawer-kontakt"
-                      href="./index.html#kontakt-section"
+                      href="./kontakt.html"
                       class="menu-drawer__menu-item list-menu__item link link--text focus-inset"
                       
                     >
@@ -1358,7 +1358,7 @@ Einloggen</a><div class="menu-drawer__localization header-localization">
             >Kontakt</span>
           </a></li><li><a
             id="HeaderMenu-kontakt"
-            href="./index.html#kontakt-section"
+            href="./kontakt.html"
             class="header__menu-item list-menu__item link link--text focus-inset"
             
           >
@@ -2438,5 +2438,23 @@ Artikel wurde in den Warenkorb gelegt
       });
     </script>
   <style> input {border-color: #9d7752 !important;} .button {font-weight: 600; font-size: 1.7rem;} .select > .icon-caret {display: none;} </style>
+<script>
+(function(){
+  const allowed = [
+    './index.html','index.html','./unser-smart-lock.html','unser-smart-lock.html',
+    './sicherheit.html','sicherheit.html','./groessenfinder.html','groessenfinder.html','./kontakt.html','kontakt.html',
+    '/', '#', ''
+  ];
+  const inHeader = (el) => el.closest('header, sticky-header, .header-wrapper, .menu-drawer') !== null;
+  document.querySelectorAll('a[href]').forEach((a) => {
+    if (!inHeader(a)) return;
+    const href = (a.getAttribute('href') || '').trim();
+    const isAllowed = allowed.includes(href) || href.startsWith('mailto:') || href.startsWith('tel:') || href.includes('keyota-logo');
+    if (isAllowed) return;
+    const removable = a.closest('li, details, .menu-drawer__menu-item, .header__menu-item') || a;
+    removable.remove();
+  });
+})();
+</script>
 </body>
 </html>
