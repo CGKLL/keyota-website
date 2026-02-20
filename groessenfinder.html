@@ -2483,5 +2483,50 @@ Artikel wurde in den Warenkorb gelegt
   });
 })();
 </script>
+<script>
+(function(){
+  const removeBusiness = true;
+  const addOverview = true;
+
+  const removeMenuLinkByText = (root, textNeedle) => {
+    root.querySelectorAll('a').forEach((a) => {
+      const txt = (a.textContent || '').trim().toLowerCase();
+      if (!txt.includes(textNeedle)) return;
+      const removable = a.closest('li, details, .menu-drawer__menu-item, .header__menu-item') || a;
+      removable.remove();
+    });
+  };
+
+  const addOverviewLink = (ul) => {
+    if (!ul) return;
+    const exists = Array.from(ul.querySelectorAll('a')).some(a => (a.textContent || '').trim().toLowerCase() === 'übersicht');
+    if (exists) return;
+
+    const li = document.createElement('li');
+    const sampleA = ul.querySelector('a');
+    const a = document.createElement('a');
+    a.href = './index.html';
+    a.textContent = 'Übersicht';
+    a.className = sampleA ? sampleA.className : 'header__menu-item list-menu__item link link--text focus-inset';
+    li.appendChild(a);
+    ul.insertBefore(li, ul.firstChild);
+  };
+
+  const apply = () => {
+    if (removeBusiness) {
+      removeMenuLinkByText(document, 'für business');
+    }
+    if (addOverview) {
+      document.querySelectorAll('ul.list-menu--inline, ul.menu-drawer__menu').forEach(addOverviewLink);
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', apply);
+  } else {
+    apply();
+  }
+})();
+</script>
 </body>
 </html>
