@@ -992,19 +992,12 @@ await import("//keyota.de/cdn/shopifycloud/shop-js/modules/v2/chunk.modal_BxEbAq
         <div class="menu-drawer__navigation-container">
           <nav class="menu-drawer__navigation">
             <ul class="menu-drawer__menu has-submenu list-menu" role="list"><li><a
-                      id="HeaderDrawer-fur-business"
+                      id="HeaderDrawer-uebersicht"
                       href="./index.html"
                       class="menu-drawer__menu-item list-menu__item link link--text focus-inset"
                       
                     >
-                      für Business
-                    </a></li><li><a
-                      id="HeaderDrawer-shop"
-                      href="https://keyota.de/collections/produktubersicht"
-                      class="menu-drawer__menu-item list-menu__item link link--text focus-inset"
-                      
-                    >
-                      Shop
+                      Übersicht
                     </a></li><li><details id="Details-menu-drawer-menu-item-3">
                       <summary
                         id="HeaderDrawer-entdecke-keyota"
@@ -1152,13 +1145,6 @@ await import("//keyota.de/cdn/shopifycloud/shop-js/modules/v2/chunk.modal_BxEbAq
                         </div>
                       </div>
                     </details></li><li><a
-                      id="HeaderDrawer-blog"
-                      href="https://keyota.de/blogs/news"
-                      class="menu-drawer__menu-item list-menu__item link link--text focus-inset"
-                      
-                    >
-                      Blog
-                    </a></li><li><a
                       id="HeaderDrawer-kontakt"
                       href="kontakt.html"
                       class="menu-drawer__menu-item list-menu__item link link--text focus-inset menu-drawer__menu-item--active"
@@ -1167,20 +1153,6 @@ await import("//keyota.de/cdn/shopifycloud/shop-js/modules/v2/chunk.modal_BxEbAq
                       
                     >
                       Kontakt
-                    </a></li><li><a
-                      id="HeaderDrawer-kontakt"
-                      href="./kontakt.html"
-                      class="menu-drawer__menu-item list-menu__item link link--text focus-inset"
-                      
-                    >
-                      Kontakt
-                    </a></li><li><a
-                      id="HeaderDrawer-zur-b2c-seite"
-                      href="https://keyota.de/"
-                      class="menu-drawer__menu-item list-menu__item link link--text focus-inset"
-                      
-                    >
-                      zur B2C-Seite
                     </a></li></ul>
           </nav>
           <div class="menu-drawer__utility-links"><a
@@ -1225,21 +1197,13 @@ Einloggen</a><div class="menu-drawer__localization header-localization">
 
 <nav class="header__inline-menu">
   <ul class="list-menu list-menu--inline" role="list"><li><a
-            id="HeaderMenu-fur-business"
+            id="HeaderMenu-uebersicht"
             href="./index.html"
             class="header__menu-item list-menu__item link link--text focus-inset"
             
           >
             <span
-            >für Business</span>
-          </a></li><li><a
-            id="HeaderMenu-shop"
-            href="https://keyota.de/collections/produktubersicht"
-            class="header__menu-item list-menu__item link link--text focus-inset"
-            
-          >
-            <span
-            >Shop</span>
+            >Übersicht</span>
           </a></li><li><header-menu>
             <details id="Details-HeaderMenu-3">
               <summary
@@ -1337,14 +1301,6 @@ Einloggen</a><div class="menu-drawer__localization header-localization">
                       </a></li></ul>
             </details>
           </header-menu></li><li><a
-            id="HeaderMenu-blog"
-            href="https://keyota.de/blogs/news"
-            class="header__menu-item list-menu__item link link--text focus-inset"
-            
-          >
-            <span
-            >Blog</span>
-          </a></li><li><a
             id="HeaderMenu-kontakt"
             href="kontakt.html"
             class="header__menu-item list-menu__item link link--text focus-inset"
@@ -1356,22 +1312,6 @@ Einloggen</a><div class="menu-drawer__localization header-localization">
                 class="header__active-menu-item"
               
             >Kontakt</span>
-          </a></li><li><a
-            id="HeaderMenu-kontakt"
-            href="./kontakt.html"
-            class="header__menu-item list-menu__item link link--text focus-inset"
-            
-          >
-            <span
-            >Kontakt</span>
-          </a></li><li><a
-            id="HeaderMenu-zur-b2c-seite"
-            href="https://keyota.de/"
-            class="header__menu-item list-menu__item link link--text focus-inset"
-            
-          >
-            <span
-            >zur B2C-Seite</span>
           </a></li></ul>
 </nav>
 
@@ -2467,6 +2407,7 @@ Artikel wurde in den Warenkorb gelegt
   <style> input {border-color: #9d7752 !important;} .button {font-weight: 600; font-size: 1.7rem;} .select > .icon-caret {display: none;} </style>
 <script>
 (function(){
+  return;
   const allowed = [
     './index.html','index.html','./unser-smart-lock.html','unser-smart-lock.html',
     './sicherheit.html','sicherheit.html','./groessenfinder.html','groessenfinder.html','./kontakt.html','kontakt.html',
@@ -2485,6 +2426,7 @@ Artikel wurde in den Warenkorb gelegt
 </script>
 <script>
 (function(){
+  return;
   const shopPattern = /(keyota\.de\/)?(collections|products|cart)/i;
   document.querySelectorAll('a[href]').forEach((a) => {
     const href = (a.getAttribute('href') || '').trim();
@@ -2498,6 +2440,7 @@ Artikel wurde in den Warenkorb gelegt
 </script>
 <script>
 (function(){
+  return;
   const removeMenuLinkByText = (root, textNeedle) => {
     root.querySelectorAll('a').forEach((a) => {
       const txt = (a.textContent || '').trim().toLowerCase();
