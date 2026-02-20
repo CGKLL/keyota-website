@@ -1820,6 +1820,18 @@ Artikel wurde in den Warenkorb gelegt
     var successMessage = document.getElementById("kontaktSuccess");
     var errorMessage = document.getElementById("kontaktError");
 
+    // Prefill message from URL (used by Größenfinder CTA)
+    (function () {
+        const params = new URLSearchParams(window.location.search);
+        const prefill = params.get('prefill') || params.get('message');
+        if (!prefill) return;
+        const messageField = document.getElementById('kontaktMessage');
+        if (messageField && !messageField.value) {
+            messageField.value = prefill;
+        }
+    })();
+
+
     form.addEventListener("submit", function (event) {
         event.preventDefault();
 

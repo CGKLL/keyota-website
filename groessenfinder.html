@@ -1894,16 +1894,15 @@ Artikel wurde in den Warenkorb gelegt
                                 <p class="tw-text-base md:tw-text-2xl tw-leading-tight tw-text-black tw-mb-2"
                                    x-text="'Außen: ' + selectedAußenMaß + ' | Innen: ' + selectedInnenMaß"></p>
                                 <p class="tw-text-base md:tw-text-2xl tw-leading-tight tw-text-black tw-text-center">Die
-                                    gewählten Maße haben wir im Shop direkt für dich vorausgewählt:</p>
+                                    gewählten Maße übertragen wir direkt in die Kontaktanfrage:</p>
 
                                 <div class="tw-pt-10 lg:tw-pt-16">
                                     <a
                                             role="link"
-                                            data-base-url="/products/digitales-tuerschloss-set-keyota"
-                                            :href="getProductUrl()"
+                                            :href="getKontaktUrl()"
                                             class="mediumButton"
                                     >
-                                        Jetzt zum Shop
+                                        Jetzt zur Kontaktseite
                                     </a>
                                 </div>
                                 <p @click="splide.go('<')"
@@ -1999,16 +1998,19 @@ Artikel wurde in den Warenkorb gelegt
                     this.splide = splide;
                 });
             },
-            getProductUrl: function () {
-
+            getKontaktUrl: function () {
                 const variant = productVariants.find(variant => variant.option1 === this.selectedAußenMaß && variant.option2 === this.selectedInnenMaß);
-                const baseUrl = document.querySelector('a[data-base-url]').dataset.baseUrl;
-
-                if (variant) {
-                    return `${baseUrl}?variant=${variant.id}`;
-                }
-
-                return baseUrl;
+                const lines = [
+                    'Hallo KEYOTA Team,',
+                    '',
+                    'ich habe den Größenfinder genutzt und folgende Maße ermittelt:',
+                    `Außenmaß: ${this.selectedAußenMaß || '-'}`,
+                    `Innenmaß: ${this.selectedInnenMaß || '-'}`,
+                    variant ? `Passende Varianten-ID (intern): ${variant.id}` : '',
+                    '',
+                    'Bitte unterstützt mich bei der finalen Konfiguration und Angebotserstellung.'
+                ].filter(Boolean).join('\n');
+                return `./kontakt.html?prefill=${encodeURIComponent(lines)}`;
             },
             isInnenOptionDisabled: function (außenMaß, innenMaß) {
                 return außenMaß ?
