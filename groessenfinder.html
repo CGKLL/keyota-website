@@ -2468,5 +2468,18 @@ Artikel wurde in den Warenkorb gelegt
   });
 })();
 </script>
+<script>
+(function(){
+  const shopPattern = /(keyota\.de\/)?(collections|products|cart)/i;
+  document.querySelectorAll('a[href]').forEach((a) => {
+    const href = (a.getAttribute('href') || '').trim();
+    const text = (a.textContent || '').trim().toLowerCase();
+    const isShopCta = shopPattern.test(href) || text === 'shop' || text.includes('zum shop') || text.includes('jetzt zum shop');
+    if (!isShopCta) return;
+    const removable = a.closest('li, .button-wrapper, .header__icon, .header__menu-item, .menu-drawer__menu-item') || a;
+    removable.remove();
+  });
+})();
+</script>
 </body>
 </html>
